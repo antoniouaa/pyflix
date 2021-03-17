@@ -1,5 +1,4 @@
 import pytest
-from flask import template_rendered
 
 from pyflix import create_app
 

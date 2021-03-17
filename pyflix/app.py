@@ -10,7 +10,7 @@ def create_app():
 
     @app.route("/", methods=["GET"])
     def landing():
-        return redirect("/api"), 301
+        return redirect("/api")
 
     return app
 

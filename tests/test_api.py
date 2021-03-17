@@ -8,4 +8,4 @@ def test_index(app):
 def test_form(app):
     response = app.post("/api/click")
 
-    assert response.status_code == 301
+    assert response.status_code == 302

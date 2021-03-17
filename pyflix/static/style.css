@@ -1,0 +1,18 @@
+body,
+html {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.content {
+    margin: 0;
+    height: 100%;
+}
+
+.fixer {
+    height: 100vh;
+    width: 100%;
+    font-size: xx-large;
+}
