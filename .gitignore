@@ -1,4 +1,9 @@
+# compilation artifacts
 **/__pycache__
 .pytest_cache
 
+# environment vars
 .env
+
+# coverage report
+.coverage
