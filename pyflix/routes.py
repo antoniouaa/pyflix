@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, redirect
 import keyboard
-import mouse
 
 blueprint = Blueprint("api_blueprint", __name__)
 
@@ -13,5 +12,4 @@ def index():
 @blueprint.route("/click", methods=["POST"])
 def click():
     keyboard.send("space")
-    print(mouse.get_position())
     return redirect("/api")

@@ -1,22 +1,25 @@
 [tool.poetry]
-name = "netflix-fixer"
+name = "pyflix"
 version = "0.1.0"
 description = "App to keep netflix from pausing by listening to LAN HTTP requests"
 authors = ["antoniouaa <antoniouaa@hotmail.com>"]
 license = "MIT"
+repository = "https://github.com/antoniouaa/supreme-lamp"
 
 [tool.poetry.dependencies]
 python = "^3.7"
 Flask = "^1.1.2"
 keyboard = "^0.13.5"
 python-dotenv = "^0.15.0"
-mouse = "^0.7.1"
+gunicorn = {version = "^20.0.4", platform = "linux"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.2"
 blinker = "^1.4"
 pytest-cov = "^2.11.1"
+coveralls = "^3.0.1"
+pre-commit = "^2.11.1"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry>=1.1.4"]
 build-backend = "poetry.core.masonry.api"
