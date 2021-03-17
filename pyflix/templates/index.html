@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+<title>
+    {% block title %}{{title}}{% endblock %} {% block content %}
+    <form action="/api/click" method="POST">
+        clickety click
+        <button>Click</button>
+    </form>
+    {% endblock %}
+</title>

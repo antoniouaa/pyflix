@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "netflix-fixer"
+version = "0.1.0"
+description = "App to keep netflix from pausing by listening to LAN HTTP requests"
+authors = ["antoniouaa <antoniouaa@hotmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+Flask = "^1.1.2"
+keyboard = "^0.13.5"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.2"
+blinker = "^1.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
