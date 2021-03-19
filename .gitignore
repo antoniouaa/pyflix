@@ -7,3 +7,6 @@
 
 # coverage report
 .coverage
+
+# images
+**/background.*

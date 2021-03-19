@@ -3,9 +3,13 @@
     {% block title %}{% endblock %} - pyflix
 </title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<header>
+    {% block header %}{% endblock %}
+</header>
 <section class="content">
-    <header>
-        {% block header %}{% endblock %}
-    </header>
+    <div>
+        <h1>pyflix</h1>
+    </div>
+
     {% block content %}{% endblock %}
 </section>
