@@ -6,8 +6,8 @@ blueprint = Blueprint("api_blueprint", __name__)
 keys = {
     "space": "space",
     "skip_forward": "shift+n",
-    "volume_up": "up",
-    "volume_down": "down",
+    "volume_up": "up, up, up",
+    "volume_down": "down, down, down",
     "toggle_full_screen": "f",
     "skip_10_backward": "left",
     "skip_10_forward": "right",
@@ -23,9 +23,14 @@ def index():
 
 @blueprint.route("/click", methods=["POST"])
 def click():
-    action = next(iter(request.form))
-    print(f"Action in keys {action in keys}")
-    if action in keys:
-        print(f"Performing action: {keys[action]}")
+    try:
+        action = next(iter(request.form))
+        if action in keys:
+            print(f"Performing action: {keys[action]}")
         keyboard.send(keys[action])
-    return redirect("/api")
+    except TypeError:
+        print("Form empty")
+    except StopIteration:
+        print("Form empty")
+    finally:
+        return redirect("/api")
