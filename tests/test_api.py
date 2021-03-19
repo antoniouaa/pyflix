@@ -1,11 +1,20 @@
 def test_index(app):
-    response = app.get("/api")
+    resp = app.get("/api")
 
-    assert response.status_code == 200
-    assert b"title" in response.data
+    assert resp.status_code == 200
+    assert b"title" in resp.data
 
 
-def test_form(app):
-    response = app.post("/api/click")
+def test_post_request(app):
+    resp = app.post("/api/click", data={})
 
-    assert response.status_code == 302
+    assert resp.status_code == 302
+
+
+def test_form_keys(app, keys):
+    for key in keys:
+        resp = app.post("/api/click", data={key: ""})
+
+        assert resp.status_code == 302
+        assert "Option-Clicked" in resp.headers
+        assert resp.headers["Option-Clicked"] == key

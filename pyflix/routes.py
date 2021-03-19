@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, request
+from flask import Blueprint, render_template, redirect, request, make_response
 import keyboard
 
 blueprint = Blueprint("api_blueprint", __name__)
@@ -28,9 +28,10 @@ def click():
         if action in keys:
             print(f"Performing action: {keys[action]}")
         keyboard.send(keys[action])
-    except TypeError:
-        print("Form empty")
     except StopIteration:
         print("Form empty")
+        action = "error"
     finally:
-        return redirect("/api")
+        response = make_response(redirect("/api"))
+        response.headers["Option-Clicked"] = action
+        return response
