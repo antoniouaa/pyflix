@@ -8,11 +8,12 @@ html {
 
 .content {
     margin: 0;
+    margin-top: 20px;
     height: 100%;
 }
 
 .fixer {
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    font-size: xx-large;
+    font-size: 5rem;
 }
