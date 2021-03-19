@@ -1,17 +1,12 @@
 {% extends "base.html" %}
-<title>
-    {% block title %}{{title}}{% endblock %}
-</title>
+<title>{% block title %}{{title}}{% endblock %}</title>
 {% block content %}
-<form action="/api/click" method="POST">
-    <button class="fixer" name="space">PAUSE/UNPAUSE</button>
-    <button class="fixer" name="skip_forward">SKIP FORWARD</button>
-    <button class="fixer" name="mute">MUTE</button>
-    <button class="fixer" name="volume_up">VOLUME UP</button>
-    <button class="fixer" name="volume_down">VOLUME DOWN</button>
-    <button class="fixer" name="toggle_full_screen">FULL SCREEN</button>
-    <button class="fixer" name="skip_10_forward">FORWARD 10</button>
-    <button class="fixer" name="skip_10_backward">BACK 10s</button>
-    <button class="fixer" name="skip_intro">SKIP INTRO (Netflix only)</button>
+<div class="header">
+  <h1>pyflix</h1>
+</div>
+<form action="/api/pages" method="POST">
+  <button class="fixer" name="page" value="netflix">NETFLIX</button>
+  <button class="fixer" name="page" value="prime">PRIME</button>
+  <button class="fixer" name="page" value="youtube">YOUTUBE</button>
 </form>
 {% endblock %}

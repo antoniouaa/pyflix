@@ -1,15 +1,10 @@
-<!doctype html>
-<title>
-    {% block title %}{% endblock %} - pyflix
-</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<header>
-    {% block header %}{% endblock %}
-</header>
+<!DOCTYPE html>
+<title>{% block title %} {{title}} {% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+{% block content %}
 <section class="content">
-    <div>
-        <h1>pyflix</h1>
-    </div>
-
-    {% block content %}{% endblock %}
+  <div>
+    <h1>pyflix</h1>
+  </div>
+  {% endblock %}
 </section>
