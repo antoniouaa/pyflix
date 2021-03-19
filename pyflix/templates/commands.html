@@ -2,30 +2,27 @@
 <title>{% block title %} {{title}} {% endblock %}</title>
 {% block content %}
 <div class="header">
-  <h1>pyflix</h1>
-  <a href="/api">
-    <div class="back-link"></div>
-  </a>
+    <h1>pyflix</h1>
+    <a href="/api">
+        <div class="back-link"></div>
+    </a>
 </div>
-<form action="/api/click" method="POST">
-  <button class="fixer" value="{{page}}" name="space">PAUSE/UNPAUSE</button>
-  <button class="fixer" value="{{page}}" name="mute">MUTE</button>
-  <button class="fixer" value="{{page}}" name="volume_up">VOLUME UP</button>
-  <button class="fixer" value="{{page}}" name="volume_down">VOLUME DOWN</button>
-  <button class="fixer" value="{{page}}" name="skip_10_forward">
+<form action={{ "/api/pages/" + page + "/click" }} method="POST">
+    <button class="fixer" value="{{page}}" name="space">PAUSE/UNPAUSE</button>
+    <button class="fixer" value="{{page}}" name="mute">MUTE</button>
+    <button class="fixer" value="{{page}}" name="volume_up">VOLUME UP</button>
+    <button class="fixer" value="{{page}}" name="volume_down">VOLUME DOWN</button>
+    <button class="fixer" value="{{page}}" name="skip_10_forward">
     FORWARD 10s
   </button>
-  <button class="fixer" value="{{page}}" name="skip_10_backward">
+    <button class="fixer" value="{{page}}" name="skip_10_backward">
     BACK 10s
   </button>
-  <button class="fixer" value="{{page}}" name="toggle_full_screen">
+    <button class="fixer" value="{{page}}" name="toggle_full_screen">
     FULL SCREEN
-  </button>
-  {% if "netflix" in page %}
-  <button class="fixer" value="{{page}}" name="skip_intro">SKIP INTRO</button>
-  {% endif %} {% if "youtube" in page %}
-  <button class="fixer" value="{{page}}" name="move_next">MOVE TO NEXT</button>
-  <button class="fixer" value="{{page}}" name="move_prev">MOVE TO PREV</button>
-  {% endif %}
+  </button> {% if "netflix" in page %}
+    <button class="fixer" value="{{page}}" name="skip_intro">SKIP INTRO</button> {% endif %} {% if "youtube" in page %}
+    <button class="fixer" value="{{page}}" name="move_next">MOVE TO NEXT</button>
+    <button class="fixer" value="{{page}}" name="move_prev">MOVE TO PREV</button> {% endif %}
 </form>
 {% endblock %}

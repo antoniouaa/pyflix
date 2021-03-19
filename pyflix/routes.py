@@ -18,21 +18,9 @@ keys = {
     "slow_playback": "shift+<",
 }
 
-current_page = ""
 
-
-@blueprint.route("/pages", methods=["POST"])
-def page_post():
-    global current_page
-    if "page" in request.form:
-        current_page = request.form["page"]
-    return render_template(
-        "commands.html", title=current_page.title(), page=current_page
-    )
-
-
-@blueprint.route("/click", methods=["POST"])
-def click():
+@blueprint.route("/pages/<page>/click", methods=["POST"])
+def click(page):
     try:
         action = next(iter(request.form))
         if action in keys:
@@ -42,13 +30,25 @@ def click():
         print("Form empty")
         action = "error"
     finally:
-        response = make_response(redirect("/api/pages", code=307))
-        response.headers["Option-Clicked"] = action
-        return response
+        return redirect(f"/api/pages/{page}", code=302)
 
 
+@blueprint.route("/pages/<page>", methods=["GET"])
+def commands(page):
+    if page is not None:
+        return render_template("commands.html", title=page.title(), page=page)
+    return redirect("/")
+
+
+@blueprint.route("/pages", methods=["POST"])
+def select_service():
+    if "page" in request.form:
+        page = request.form["page"]
+        return redirect(f"/api/pages/{page}")
+    return render_template("index.html", title="pyflix")
+
+
+@blueprint.route("/pages", methods=["GET"])
 @blueprint.route("/", methods=["GET"])
 def index():
-    global current_page
-    current_page = ""
     return render_template("index.html", title="pyflix")

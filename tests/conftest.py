@@ -7,7 +7,8 @@ from pyflix import create_app
 def app():
     _app = create_app()
     with _app.test_client() as testing_client:
-        yield testing_client
+        with _app.app_context():
+            yield testing_client
 
 
 @pytest.fixture(scope="function")
@@ -23,3 +24,8 @@ def keys():
         "mute": "m",
         "skip_intro": "s",
     }
+
+
+@pytest.fixture(scope="function")
+def pages():
+    return ["netflix", "prime", "youtube"]
