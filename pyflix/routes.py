@@ -16,6 +16,7 @@ keys = {
     "skip_intro": "s",
     "speed_playback": "shift+>",
     "slow_playback": "shift+<",
+    "refresh": "F5",
 }
 
 
