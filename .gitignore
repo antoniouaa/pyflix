@@ -8,6 +8,5 @@
 # coverage report
 .coverage
 
-# images
-**/*.jpeg
-**/*.png
+# poetry stuff
+poetry.lock
